@@ -1,0 +1,27 @@
+{
+  "name": "web-component-1-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/web-component-1-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/web-component-1-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "web-component-1:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "web-component-1:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["web-component-1"]
+}
